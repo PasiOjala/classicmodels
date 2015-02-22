@@ -34,7 +34,8 @@ public class OrderBean {
         this.custNum = custNum;
     }
     
-    public List<Order> getOrderByCustomerNumber(){
+    public List<Order> getOrderByCustomerNumber(int custNum){
+        this.custNum=custNum;
       List<Order> rl=em.createNamedQuery("Orders.findByCustomerNumber", Order.class)
             .setParameter("customerNumber", custNum)
             .getResultList();

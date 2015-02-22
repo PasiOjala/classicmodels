@@ -29,11 +29,11 @@ import javax.validation.constraints.Size;
 @Table(name = "customers")
 @NamedQueries({
     @NamedQuery(name = "Customers.findAll", query = "SELECT c FROM Customers c"),
-    @NamedQuery(name = "Customers.findByCustomerNumber", query = "SELECT c FROM Customers c WHERE c.customerNumber = :customerNumber"),
     @NamedQuery(name = "Customers.findByCustomerName", query = "SELECT c FROM Customers c WHERE c.customerName = :customerName"),
     @NamedQuery(name = "Customers.findByContactLastName", query = "SELECT c FROM Customers c WHERE c.contactLastName = :contactLastName"),
     @NamedQuery(name = "Customers.findByContactFirstName", query = "SELECT c FROM Customers c WHERE c.contactFirstName = :contactFirstName"),
-    @NamedQuery(name = "Customers.findByPartialString", query = "SELECT c FROM Customers c WHERE lower(c.contactFirstName) LIKE :contactPartial "
+    @NamedQuery(name = "Customers.findByPartialString", query = "SELECT new classicmodels.CustomerInfo(c.customerNumber,c.customerName,c.contactFirstName,c.contactLastName)"
+            + " FROM Customers c WHERE lower(c.contactFirstName) LIKE :contactPartial "
             + " or lower(c.contactLastName) LIKE :contactPartial  or lower(c.customerName) LIKE  :contactPartial "),
     @NamedQuery(name = "Customers.findByPhone", query = "SELECT c FROM Customers c WHERE c.phone = :phone"),
     @NamedQuery(name = "Customers.findByAddressLine1", query = "SELECT c FROM Customers c WHERE c.addressLine1 = :addressLine1"),

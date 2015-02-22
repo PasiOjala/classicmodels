@@ -18,16 +18,16 @@ public class Order {
     private final Date shippedDate;
     private final String status;
     private final String comments;
-    private final Collection<Orderdetails> orderdetailsCollection;
+//    private final Collection<Orderdetails> orderdetailsCollection;
     private final Customers customerNumber;
 
-    public Order(Integer orderNumber, Date requiredDate, Date shippedDate, String status, String comments, Collection<Orderdetails> orderdetailsCollection, Customers customerNumber) {
+    public Order(Integer orderNumber, Date requiredDate, Date shippedDate, String status, String comments,  Customers customerNumber) {
         this.orderNumber = orderNumber;
         this.requiredDate = requiredDate;
         this.shippedDate = shippedDate;
         this.status = status;
         this.comments = comments;
-        this.orderdetailsCollection = orderdetailsCollection;
+//        this.orderdetailsCollection = orderdetailsCollection;
         this.customerNumber = customerNumber;
     }
 
@@ -52,9 +52,9 @@ public class Order {
         return comments;
     }
 
-    public Collection<Orderdetails> getOrderdetailsCollection() {
-        return orderdetailsCollection;
-    }
+//    public Collection<Orderdetails> getOrderdetailsCollection() {
+//        return orderdetailsCollection;
+//    }
 
     public Customers getCustomerNumber() {
         return customerNumber;

@@ -34,7 +34,8 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Orders.findAll", query = "SELECT o FROM Orders o"),
     @NamedQuery(name = "Orders.findByOrderNumber", query = "SELECT o FROM Orders o WHERE o.orderNumber = :orderNumber"),
-    @NamedQuery(name = "Orders.findByCustomerNumber", query = "SELECT o FROM Orders o WHERE o.customerNumber = :customerNumber"),
+    @NamedQuery(name = "Orders.findByCustomerNumber", query = "SELECT new classicmodels.Order(o.orderNumber,o.requiredDate,o.shippedDate,o.status,o.comments,o.customerNumber)"
+            + " FROM Orders o, Customers c WHERE c.customerNumber = :customerNumber and o.customerNumber=c"),
     @NamedQuery(name = "Orders.findByOrderDate", query = "SELECT o FROM Orders o WHERE o.orderDate = :orderDate"),
     @NamedQuery(name = "Orders.findByRequiredDate", query = "SELECT o FROM Orders o WHERE o.requiredDate = :requiredDate"),
     @NamedQuery(name = "Orders.findByShippedDate", query = "SELECT o FROM Orders o WHERE o.shippedDate = :shippedDate"),
