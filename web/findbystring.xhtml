@@ -11,8 +11,8 @@
             <h:form>
                 <h:outputText value="Search string :"/>
                 <h:inputText value="#{customerInfoBean.searchString}"/>
-                <h:button value="Search"/>
-            </h:form>
+                <h:commandButton value="Search"/>
+
             <!--<ui:repeat value="#{customerInfoBean.customerInfoFromPartial}" var="cust">-->
                 <h:dataTable value="#{customerInfoBean.customerInfoFromPartial}" var="cust">
                     <h:column>
@@ -29,6 +29,7 @@
                     </h:column>
 
                 </h:dataTable>
+            </h:form>
                 <!--</ui:repeat>-->
         </h:column>
     </h:body>
